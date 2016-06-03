@@ -10,4 +10,5 @@ Steps to get this working (only tested on mac so far):
 3) source bin/activate
 4) npm install
 5) grunt devserver
- 
+
+- Mark 6/3
