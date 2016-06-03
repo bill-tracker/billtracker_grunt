@@ -1,0 +1,165 @@
+// bootstrap overrides
+.btn {
+  border-radius: 0;
+}
+
+.st-content {
+  background: #fff;
+}
+
+.introjs-helperNumberLayer {
+  box-sizing: content-box;
+}
+
+a#logoText {
+  margin: 50px 0 0;
+  font-size: 32px;
+  color: #fff;
+  display: block;
+  font-family: "Arvo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  float: left;
+
+  // fixes font kerning
+  span {
+    display: inline-block;
+    border: none;
+    &.fixBigKerningGap {
+      margin-left: -2px;
+    }
+    &.fixSmallKerningGap {
+      margin-left: -1px;
+    }
+  }
+
+  &:hover,
+  &:active,
+  &:visited {
+    text-decoration: none;
+  }
+
+  /* logo preview from http://graphicriver.net/item/law-talk/7469608 */
+  img#logoImage {
+    margin: -63px 5px 0 0;
+    width: 50px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 25px;
+
+    img#logoImage {
+      margin: -33px 5px 0 0;
+      width: 30px;
+    }
+
+  }
+}
+
+header {
+  padding: 0 0 20px;
+  overflow: hidden;
+  background: #1A4C6D;
+
+  #st-trigger-effects {
+    display: none;
+  }
+
+  @media (max-width: 650px) {
+    #st-trigger-effects {
+      display: block;
+    }
+
+    ul#ultraTopNav {
+      display: none;
+    }
+
+  }
+
+  button#mobileMenuButton {
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  ul#ultraTopNav {
+    margin: 60px 20px 0 0;
+    float: right;
+    overflow: hidden;
+
+    li {
+      list-style: none;
+      float: left;
+
+      a {
+        margin: 0 0 0 20px;
+        color: #fff;
+        text-decoration: none;
+
+        @media (min-width: 992px) {
+          margin: 0 0 0 35px;
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+      }
+    }
+  }
+
+}
+
+
+.nav-pills > li.active {
+  a,
+  a:hover,
+
+  a:focus {
+    color:black;
+    background-color: #2c3e50;
+  }
+}
+
+.bill-list {
+  .nav.nav-pills li {
+    a {
+      margin: 0 0 20px;
+
+      span {
+        color: #bbb;
+      }
+
+      &.addBillButton.btn-primary {
+        margin: 20px 0 0;
+        color: #bbb;
+      }
+    }
+  }
+}
+
+.containerAddBill h3 {
+  margin: 30px 0 20px;
+}
+
+.container.bill-list nav li {
+  margin: 0 0 20px;
+}
+
+/* Search-specific */
+.highlighted {
+  background: yellow;
+}
+
+footer {
+  margin: 40px 0 0;
+
+  p {
+    margin-left: 20px;
+    text-align: right;
+  }
+}
+
+// for intro.js demo
+.introjs-bullets {
+  display: none;
+}

@@ -1,0 +1,259 @@
+.home .banner.homeSection {
+  /* banner background from flickr - thelukeparker-14170034048 - we need to add credit to photographer */
+  /*height:100vh;
+  background: url('../images/thelukeparker-14170034048.jpg') 50% 50% / cover no-repeat;*/
+  width: 100%;
+  /*height: 100%; */
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background-image: url("../images/thelukeparker-14170034048.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.home .banner.homeSection header {
+  background: none;
+}
+.home .banner.homeSection header #ultraTopNav {
+  padding: 10px 0;
+}
+.home .banner.homeSection header #ultraTopNav a#demo {
+  padding: 5px;
+  margin: -10px 0 0 15px;
+  color: #18bc9c;
+  border: 1px solid #18bc9c;
+}
+.home .banner.homeSection header #ultraTopNav a#demo:hover {
+  text-decoration: none;
+  color: #fff;
+  border-color: #18bc9c;
+  background: #18bc9c;
+}
+.home .banner.homeSection .bannerContent {
+  margin: 20px auto;
+  color: #fff;
+  text-align: center;
+}
+.home .banner.homeSection .bannerContent h1 {
+  margin: 0 auto;
+  width: 70%;
+}
+@media (max-width: 768px) {
+  .home .banner.homeSection .bannerContent h1 {
+    font-size: 30px;
+    line-height: 1.2;
+  }
+}
+@media (max-width: 480px) {
+  .home .banner.homeSection .bannerContent h1 {
+    font-size: 21px;
+    line-height: 1.2;
+  }
+}
+.home .banner.homeSection form {
+  margin: 64px auto 0;
+  max-width: 360px;
+  min-width: 278px;
+  background: #FDFDFD;
+}
+.home .banner.homeSection form #legis-session {
+  padding: 10px 0 19px;
+  display: block;
+  background: #18bc9c;
+  font-size: 31px;
+}
+.home .banner.homeSection form #legis-session em {
+  display: block;
+  font-size: 15px;
+  font-style: normal;
+  line-height: 7px;
+}
+.home .banner.homeSection form .formBody {
+  padding: 22px 0px 29px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.home .banner.homeSection form .formBody #legis-chamber label,
+.home .banner.homeSection form .formBody #bill-number input {
+  font-size: 20px;
+}
+.home .banner.homeSection form .formBody #legis-chamber {
+  margin: 0 auto;
+  width: 255px;
+  text-align: left;
+  display: block;
+}
+.home .banner.homeSection form .formBody #legis-chamber input {
+  margin-top: 4px;
+  font-size: 15px;
+}
+.home .banner.homeSection form .formBody #legis-chamber input#SB {
+  margin-left: 15px;
+}
+.home .banner.homeSection form .formBody #legis-chamber input#HB {
+  margin-left: 34px;
+}
+.home .banner.homeSection form .formBody #legis-chamber label {
+  margin-left: 5px;
+  font-size: 15px;
+}
+.home .banner.homeSection form .formBody #bill-number {
+  margin: 14px 0 0;
+  color: #000;
+  display: block;
+}
+.home .banner.homeSection form .formBody #bill-number input {
+  padding: 0 0 2px 6px;
+  height: 35px;
+  width: 260px;
+  color: #999;
+  line-height: 22px;
+}
+.home .banner.homeSection form .formBody #bill-submit {
+  margin: 16px 0 0;
+  display: block;
+}
+.home .banner.homeSection form .formBody #bill-submit button {
+  padding: 0;
+  width: 260px;
+  height: 39px;
+  color: #F5F5F5;
+  font-size: 20px;
+  line-height: 17px;
+}
+.home .banner.homeSection form .formBody label {
+  margin: 0 0 0 10px;
+  color: #999;
+  font-weight: normal;
+}
+.home .marketing.homeSection .tripleIconRow {
+  padding: 80px 0 50px;
+}
+.home .marketing.homeSection .tripleIconRow .marketingItem {
+  text-align: center;
+}
+.home .marketing.homeSection .tripleIconRow .marketingItem i.fa {
+  font-size: 150px;
+}
+.home .marketing.homeSection .featurette {
+  padding: 5px 0 30px;
+}
+.home .marketing.homeSection .featurette i.fa {
+  margin: 0 20px 0 0;
+  font-size: 105px;
+  float: left;
+}
+.home .marketing.homeSection .featurette i.fa.fa-connectdevelop {
+  font-size: 95px;
+}
+.home .marketing.homeSection .featurette p.lead {
+  margin: 12px 0 0;
+}
+.home .marketing.homeSection .featurette p.lead.leadNoTopMargin {
+  margin: 4px 0 0;
+}
+.home .marketing.homeSection .featurette p.lead.leadNegativeMargin {
+  margin: -8px 0 0;
+}
+.home .marketing.homeSection .featurette p.lead span.featurette-heading {
+  padding: 3px 0 0;
+  margin: 0 0 4px;
+  font-size: 27px;
+  display: block;
+}
+@media (max-width: 478px) {
+  .home .marketing.homeSection .featurette p.lead span.featurette-heading {
+    display: block;
+    clear: left;
+  }
+  .home .marketing.homeSection .featurette p.lead span.featurette-heading span.text-muted {
+    display: block;
+    clear: left;
+  }
+}
+@media (max-width: 572px) {
+  .home .marketing.homeSection .featurette p.lead.quote .featurette-heading {
+    padding: 20px 0 14px;
+  }
+}
+@media (max-width: 991px) {
+  .home .marketing.homeSection .featurette p.lead.quote br {
+    display: none;
+  }
+}
+.home .marketing.homeSection .featurette p.lead.quote .quoteIcon {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 0 6px 0 6px;
+  float: none;
+  display: inline-block;
+}
+.home .marketing.homeSection .featurette p.lead.quote .quoteIcon.fa-quote-left {
+  margin-top: -4px;
+}
+.home .marketing.homeSection .featurette p.lead.quote .quoteIcon.fa-quote-right {
+  margin-top: 0;
+}
+.home .marketing.homeSection .featurette p.lead.quote .endOfQuote {
+  display: inline;
+}
+@media (max-width: 446px) {
+  .home .marketing.homeSection .featurette p.lead.quote .endOfQuote {
+    display: block;
+  }
+}
+.home .marketing.homeSection hr.featurette-divider {
+  margin: 21px 0 30px;
+}
+
+footer {
+  padding: 0 0 15px;
+  overflow: hidden;
+}
+footer p {
+  margin: 0;
+}
+footer p.footerItem1 {
+  float: left;
+}
+footer p.footerItem2 {
+  float: right;
+}
+footer p.footerItem3 {
+  margin-right: 10px;
+  float: right;
+}
+@media (max-width: 768px) {
+  footer p.footerItem2 {
+    clear: left;
+  }
+  footer p.footerItem3 {
+    float: left;
+    clear: left;
+  }
+}
+@media (max-width: 478px) {
+  footer p.footerItem2 {
+    float: left;
+  }
+}
+footer p a:active, footer p a:visited {
+  text-decoration: none;
+}
+footer p a:hover {
+  text-decoration: underline;
+}
+
+.introjs-tooltipReferenceLayer .introjs-tooltipbuttons {
+  text-align: center;
+}
+.introjs-tooltipReferenceLayer .introjs-skipbutton {
+  display: none;
+}
+
+/*# sourceMappingURL=zhome.css.map */
