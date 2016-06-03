@@ -1,0 +1,9 @@
+body label {
+  font-family: "Courier";
+}
+body input[type="submit"] {
+  width: 300px;
+  height: 75px;
+}
+
+/*# sourceMappingURL=style2.css.map */

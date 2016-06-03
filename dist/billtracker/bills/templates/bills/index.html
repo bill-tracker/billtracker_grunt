@@ -1,0 +1,29 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="{% static 'bills/css/style.min.css' %}" />
+  </head>
+  <body>
+    <h3>Billtracker</h3>
+    <p>Recent Bills</p>
+    <ul>
+      {% for bill in bills %}
+      <li><a href="{% url 'bills:single' bill.id %}">{{bill.title}}</a></li>
+      {% endfor %}
+    </ul>
+
+    <br />
+    <br />
+    <p>{{ error_message}}</p>
+    <form action="{% url 'bills:search_by_title' %}" method="post">
+      {% csrf_token %}
+      <label for="searchDb">Search Database For Bill By Title</label>
+      <input type="text" id="searchDb" name="title" /><br />
+      <input type="submit" value="Search" />
+    </form>
+
+  </body>
+</html>
