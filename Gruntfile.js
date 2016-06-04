@@ -11,12 +11,22 @@ module.exports = function(grunt) {
     },
     preprocess : {
       dev : {
-        src : 'src/billtracker/bills/templates/bills/index.html',
-        dest : 'dev/billtracker/bills/templates/bills/index.html'
+        src: '**/*.html',
+        ext: '.html',
+        cwd: 'src/billtracker/bills/templates/bills/',
+        dest: 'dev/billtracker/bills/templates/bills/',
+        expand: true
+        // src : 'src/billtracker/bills/templates/bills/*.html',
+        // cwd : 'dev/billtracker/bills/templates/bills/*'
       },
       dist : {
-        src : 'src/billtracker/bills/templates/bills/index.html',
-        dest : 'dist/billtracker/bills/templates/bills/index.html'
+        src: '**/*.html',
+        ext: '.html',
+        cwd: 'src/billtracker/bills/templates/bills/',
+        dest: 'dist/billtracker/bills/templates/bills/',
+        expand: true
+        // src : 'src/billtracker/bills/templates/bills/*',
+        // dest : 'dist/billtracker/bills/templates/bills/*'
       }
     },
     copy: {

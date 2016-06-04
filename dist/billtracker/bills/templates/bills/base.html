@@ -8,16 +8,7 @@
     <link rel="shortcut icon" href="{% static "images/favicon.ico" %}" />
     <title>Bill Tracker</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <!-- @if NODE_ENV == 'DEVELOPMENT' -->
-    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'bills/css/bootstrap.3.3.4.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'bills/css/zintrojs.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'bills/css/st-menu.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'bills/css/global.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'bills/css/zdownstream.css' %}" />
-    <!-- @endif -->
-    <!-- @if NODE_ENV == 'PRODUCTION' -->
     <link rel="stylesheet" type="text/css" href="{% static 'bills/css/style.min.css' %}" />
-    <!-- @endif -->
   </head>
   <body class="downstream">
     <!-- fun stuff
@@ -39,17 +30,7 @@
 
 
 
-    <!-- @if NODE_ENV == 'DEVELOPMENT' -->
-    <script src="{% static "bills/js/ajquery-1.10.2.min.js" %}" type="text/javascript"></script>
-    <script src="{% static "bills/js/bootstrap.min.js" %}" type="text/javascript"></script>
-    <script src="{% static "bills/js/global.js" %}" type="text/javascript"></script>
-    <script src="{% static "bills/js/classie.js" %}"></script>
-    <script src="{% static "bills/js/sidebarEffects.js" %}"></script>
-    <script src="{% static "bills/js/intro.js" %}"></script>
-    <!-- @endif -->
-    <!-- @if NODE_ENV == 'PRODUCTION' -->
     <script src="{% static "bills/js/scripts.min.js" %}"></script>
-    <!-- @endif -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js"></script>
 
     <body class="downstream" ng-app="bill-tracker">
