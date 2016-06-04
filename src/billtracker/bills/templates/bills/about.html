@@ -8,7 +8,16 @@
     <link rel="shortcut icon" href="{% static "images/favicon.ico" %}" />
     <title>Bill Tracker</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <!-- @if NODE_ENV == 'DEVELOPMENT' -->
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'bills/css/bootstrap.3.3.4.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'bills/css/zintrojs.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'bills/css/st-menu.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'bills/css/global.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'bills/css/zhome.css' %}" />
+    <!-- @endif -->
+    <!-- @if NODE_ENV == 'PRODUCTION' -->
     <link rel="stylesheet" type="text/css" href="{% static 'bills/css/style.min.css' %}" />
+    <!-- @endif -->
   </head>
   <body class="home">
     <!-- fun stuff
@@ -40,25 +49,25 @@
           </a>
           <ul>
             <li>
-              <a href="/bill-listing/">
+              <a href="/bill-listing.html">
                 <i class="fa fa-leanpub"></i>
                 &nbsp;Bills
               </a>
             </li>
             <li>
-              <a href="/about/">
+              <a href="/about-us.html">
                 <i class="fa fa-users"></i>
                 &nbsp;About Us
               </a>
             </li>
             <li>
-              <a href="/blog/">
+              <a href="/blog.html">
                 <i class="fa fa-comments"></i>
                 &nbsp;Blog
               </a>
             </li>
             <li>
-              <a href="/contact-us/">
+              <a href="/contact-us.html">
                 <i class="fa fa-envelope"></i>
                 &nbsp;Contact Us
               </a>
@@ -89,10 +98,10 @@
                   </div>
 
                   <ul id="ultraTopNav">
-                    <li><a href="/bill-listing/">Bills</a></li>
-                    <li><a href="/about-us/">About</a></li>
-                    <li><a href="/blog/">Blog</a></li>
-                    <li><a href="/contact-us/">Contact</a></li>
+                    <li><a href="/bill-listing.html">Bills</a></li>
+                    <li><a href="/about-us.html">About</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    <li><a href="/contact-us.html">Contact</a></li>
                     <li><a id="demo" href="javascript:void(0);">View Demo</a></li>
                   </ul>
 
@@ -224,7 +233,17 @@
 
     </div> <!-- st-container -->
 
+    <!-- @if NODE_ENV == 'DEVELOPMENT' -->
+    <script src="{% static "bills/js/ajquery-1.10.2.min.js" %}" type="text/javascript"></script>
+    <script src="{% static "bills/js/bootstrap.min.js" %}" type="text/javascript"></script>
+    <script src="{% static "bills/js/global.js" %}" type="text/javascript"></script>
+    <script src="{% static "bills/js/classie.js" %}"></script>
+    <script src="{% static "bills/js/sidebarEffects.js" %}"></script>
+    <script src="{% static "bills/js/intro.js" %}"></script>
+    <!-- @endif -->
+    <!-- @if NODE_ENV == 'PRODUCTION' -->
     <script src="{% static "bills/js/scripts.min.js" %}"></script>
+    <!-- @endif -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js"></script>
 
   </body>

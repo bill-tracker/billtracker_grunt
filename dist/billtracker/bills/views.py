@@ -9,6 +9,18 @@ def index(request):
     bills = Bill.objects.order_by('-date')
     return render(request, 'bills/index.html', {'bills':bills})
 
+def about_us(request):
+    return render(request, 'bills/about.html')
+
+def bill_listing(request):
+    return render(request, 'bills/bill-listing.html')
+
+def blog(request):
+    return render(request, 'bills/blog.html')
+
+def contact_us(request):
+    return render(request, 'bills/contact.html')
+
 def single(request, bill_id):
     bill = get_object_or_404(Bill, pk=bill_id)
     return render(request, 'bills/single.html', {'bill':bill})
