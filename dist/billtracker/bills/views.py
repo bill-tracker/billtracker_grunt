@@ -13,7 +13,8 @@ def about_us(request):
     return render(request, 'bills/about.html')
 
 def bill_listing(request):
-    return render(request, 'bills/bill-listing.html')
+    bills = Bill.objects.order_by('-date')
+    return render(request, 'bills/bill-listing.html', {'bills':bills})
 
 def blog(request):
     return render(request, 'bills/blog.html')
