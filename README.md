@@ -22,6 +22,8 @@ npm install -g grunt-cli
 
 4. npm install
 
+4.5 you may need to do pip install django at this point
+
 5. grunt devserver
 
 

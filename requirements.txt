@@ -1,0 +1,4 @@
+###### Requirements.txt ######
+django
+beautifulsoup4
+requests
