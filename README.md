@@ -12,17 +12,17 @@ Steps to get this working (only tested on mac so far):
 
 * Install Grunt if it's not already by typing `npm install -g grunt-cli`
 
-1. git clone https://github.com/bill-tracker/billtracker_grunt.git
+1. `git clone https://github.com/bill-tracker/billtracker_grunt.git`
 
-2. cd billtracker_grunt
+2. `cd billtracker_grunt`
 
-3. source bin/activate
+3. `source bin/activate`
 
-4. npm install
+4. `npm install`
 
-5. pip install -r requirements.txt
+5. `pip install -r requirements.txt`
 
-6. grunt devserver
+6. `grunt devserver`
 
 
 -- Mark 6/3 7pm
