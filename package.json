@@ -1,9 +1,13 @@
 {
-  "name": "venv2",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "billtracker_grunt",
+  "version": "0.0.1",
+  "homepage": "http://www.billtracker.org/",
+  "bugs": "https://github.com/bill-tracker/bill-tracker/issues",
+  "main": "Gruntfile.js",
+  "repository": "bill-tracker/billtracker_grunt",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "grunt devserver"
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +28,5 @@
     "grunt-env": "^0.4.4",
     "grunt-exec": "^0.4.7",
     "grunt-preprocess": "^5.1.0"
-  },
-  "description": ""
+  }
 }

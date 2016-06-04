@@ -62,6 +62,14 @@ module.exports = function(grunt) {
             dest: 'dist/billtracker/bills/static/bills/js/'
         }],
       },
+      distreq: {
+        files: [{
+            expand: true,
+            cwd: 'src/',
+            src: ['requirements.txt'],
+            dest: 'dist/'
+        }],
+      }
     },
     clean: {
       dev: {
@@ -169,7 +177,7 @@ module.exports = function(grunt) {
   grunt.registerTask('devclean', ['clean:dev']);
   grunt.registerTask('distclean', ['clean:dist']);
   grunt.registerTask('devcopy', ['env:dev','copy:dev','preprocess:dev']);
-  grunt.registerTask('distcopy', ['env:dist','copy:distmain','copy:distcss','copy:distjs','preprocess:dist']);
+  grunt.registerTask('distcopy', ['env:dist','copy:distmain','copy:distcss','copy:distjs', 'copy:distreq', 'preprocess:dist']);
   grunt.registerTask('devmigrate', ['exec:devmigrate']);
   grunt.registerTask('distmigrate', ['exec:distmigrate']);
   grunt.registerTask('devserver', ['exec:devserver']);
@@ -179,5 +187,6 @@ module.exports = function(grunt) {
   grunt.registerTask('mincss', ['cssmin']);
   grunt.registerTask('watchsass', ['watch']);
   grunt.registerTask('default', ['mincss','compressjs','devclean','distclean','devcopy','distcopy','devmigrate','distmigrate']);
+  grunt.registerTask('build', ['sassy', 'mincss', 'compressjs', 'distclean', 'distcopy']);
 
 };
