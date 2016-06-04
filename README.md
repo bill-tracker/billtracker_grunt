@@ -18,9 +18,9 @@
 
 2. `cd billtracker_grunt`
 
-4. `npm install`
+4. `pip install -r requirements.txt`
 
-5. `pip install -r requirements.txt`
+5. `npm install`
 
 6. `grunt devserver`
 
