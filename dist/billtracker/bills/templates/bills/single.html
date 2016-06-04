@@ -3,17 +3,28 @@
 {% load staticfiles %}
 {% block content %}
 
-
   <div class="container mainContent">
 
     <div class="row">
 
+      <div class="col-xs-8">
+
       <h1>{{bill.title}}</h1>
 
       <p>{{bill.text}}<p>
+      </div>
+
+      <div class="col-xs-4">
+        <h1>Some Comments</h1>
+        <h3>Eman Em</h3>
+        <p>Here's my ten cents; my two cents is free.</p>
+        <h3>TrumpFan2016</h3>
+        <p>@Eman Stop giving away free stuff, socialist!</p>
+        <p>any any any</p>
+      </div>
 
     </div>
 
   </div>
-
+  <script async src="//genius.codes"></script>
 {% endblock %}
