@@ -1,231 +1,227 @@
+{% extends "bills/base.html" %}
+
 {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" href="{% static "images/favicon.ico" %}" />
-    <title>Bill Tracker</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'bills/css/style.min.css' %}" />
-  </head>
-  <body class="home">
-    <!-- fun stuff
-    <ul>
-      {% for bill in bills %}
-      <li><a href="{% url 'bills:single' bill.id %}">{{bill.title}}</a></li>
-      {% endfor %}
-    </ul>
-    <br />
-    <br />
-    <p>{{ error_message}}</p>
-    <form action="{% url 'bills:search_by_title' %}" method="post">
-      {% csrf_token %}
-      <label for="searchDb">Search Database For Bill By Title</label>
-      <input type="text" id="searchDb" name="title" /><br />
-      <input type="submit" value="Search" />
-    </form>
-    -->
-    <div id="st-container" class="st-container">
+{% block content %}
 
-      <!-- slide out mobile menu -->
-      <div class="st-pusher">
 
-        <nav class="st-menu st-effect-7" id="menu-7">
-          <a id="logoText" href="/">
-            <img id="logoImage" src="{% static "bills/images/logo-balloon.png" %}"
-            alt="Bill Tracker logo" />
-            Bill Tra<span class="fixBigKerningGap">c</span>k<span class="fixSmallKerningGap">e</span>r
-          </a>
-          <ul>
-            <li>
-              <a href="/bill-listing.html">
-                <i class="fa fa-leanpub"></i>
-                &nbsp;Bills
-              </a>
-            </li>
-            <li>
-              <a href="/about-us.html">
-                <i class="fa fa-users"></i>
-                &nbsp;About Us
-              </a>
-            </li>
-            <li>
-              <a href="/blog.html">
-                <i class="fa fa-comments"></i>
-                &nbsp;Blog
-              </a>
-            </li>
-            <li>
-              <a href="/contact-us.html">
-                <i class="fa fa-envelope"></i>
-                &nbsp;Contact Us
-              </a>
-            </li>
-          </ul>
-        </nav>
+  <div class="container mainContent contactUs">
 
-        <div class="st-content"> <!-- regular content wrapper -->
+    <div class="row">
 
-            <div class="st-content-inner"> <!-- extra div for emulating position:fixed of the menu -->
+      <h1>Contact Us</h1>
 
-            <div class="banner homeSection">
+      <p>Feel free to contact us with this contact form.  We'll get back to you shortly.  We appriciate any and all feedback on Bill Tracker &mdash; bugs, usability issues, ideas or suggestions.</p>
 
-              <header>
+    </div> <!-- intro row -->
 
-                <div class="container">
+    <div class="row">
 
-                  <a id="logoText" href="/">
-                    <img id="logoImage" src="{% static "bills/images/logo-balloon.png" %}"
-                    alt="Bill Tracker logo" />
-                    Bill Tra<span class="fixBigKerningGap">c</span>k<span class="fixSmallKerningGap">e</span>r
-                  </a>
+      <div class="container">
 
-                  <div id="st-trigger-effects">
-                    <button id="mobileMenuButton" data-effect="st-effect-7">
-                      <i class="fa fa-bars"></i>
-                    </button>
-                  </div>
+        <!-- from http://codepen.io/jaycbrf/pen/iBszr -->
+        <form class="well form-horizontal" action=" " method="post"  id="contact_form">
 
-                  <ul id="ultraTopNav">
-                    <li><a href="/bill-listing.html">Bills</a></li>
-                    <li><a href="/about-us.html">About</a></li>
-                    <li><a href="/blog.html">Blog</a></li>
-                    <li><a href="/contact-us.html">Contact</a></li>
-                    <li><a id="demo" href="javascript:void(0);">View Demo</a></li>
-                  </ul>
+          <fieldset>
 
+            <!-- Form Name -->
+            <legend>Contact Us Today!</legend>
+
+            <!-- Text input-->
+
+            <div class="form-group">
+              <label class="col-md-4 control-label">First Name</label>
+              <div class="col-md-4 inputGroupContainer">
+              <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user"></i></span>
+              <input  name="first_name" placeholder="First Name" class="form-control"  type="text">
                 </div>
+              </div>
+            </div>
 
-              </header>
+            <!-- Text input-->
+
+            <div class="form-group">
+              <label class="col-md-4 control-label" >Last Name</label>
+                <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user"></i></span>
+              <input name="last_name" placeholder="Last Name" class="form-control"  type="text">
+                </div>
+              </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label">E-Mail</label>
+                <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+              <input name="email" placeholder="E-Mail Address" class="form-control"  type="text">
+                </div>
+              </div>
+            </div>
 
 
-              <!-- Content -->
-              <div class="container bannerContent">
-                <div id="page1" class="page">
-                  <h1>{{ headline }}</h1>
+            <!-- Text input-->
 
-                  <form action="/bills/" method="post" class="form">
-                    <!-- Placeholder for being able to
-                      select State or National, and Session -->
-                    <span id="legis-session">Find a bill <em>Texas Session 84R</em></span>
+            <div class="form-group">
+              <label class="col-md-4 control-label">Phone #</label>
+                <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+              <input name="phone" placeholder="(845) 555-1212" class="form-control" type="text">
+                </div>
+              </div>
+            </div>
 
-                    {% csrf_token %}
+            <!-- Text input-->
 
-                    <!-- HARDCODE WARNING -->
-                    <input type="hidden" name="session" value="84R" />
+            <!--
+            <div class="form-group">
+              <label class="col-md-4 control-label">Address</label>
+                <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+              <input name="address" placeholder="Address" class="form-control" type="text">
+                </div>
+              </div>
+            </div>
 
-                    <div class="formBody">
-                      <!-- Dropdown to select where the bill originated: Senate or House -->
-                      <span id="legis-chamber" data-step="1" data-intro="Choose senate or house">
-                        <!-- Senate or House Bill:<br /> -->
-                        <input type="radio" name="chamber_origin" checked="checked" value="S" id="SB" />
-                        <label for="SB">Senate Bill</label>
-                        <input type="radio" name="chamber_origin" value="H" id="HB" />
-                        <label for="HB">
-                          House Bill
+            <div class="form-group">
+              <label class="col-md-4 control-label">City</label>
+                <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+              <input name="city" placeholder="city" class="form-control"  type="text">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-4 control-label">State</label>
+                <div class="col-md-4 selectContainer">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                  <select name="state" class="form-control selectpicker" >
+                    <option value=" " >Please select your state</option>
+                    <option>Alabama</option>
+                    <option>Alaska</option>
+                    <option >Arizona</option>
+                    <option >Arkansas</option>
+                    <option >California</option>
+                    <option >Colorado</option>
+                    <option >Connecticut</option>
+                    <option >Delaware</option>
+                    <option >District of Columbia</option>
+                    <option> Florida</option>
+                    <option >Georgia</option>
+                    <option >Hawaii</option>
+                    <option >daho</option>
+                    <option >Illinois</option>
+                    <option >Indiana</option>
+                    <option >Iowa</option>
+                    <option> Kansas</option>
+                    <option >Kentucky</option>
+                    <option >Louisiana</option>
+                    <option>Maine</option>
+                    <option >Maryland</option>
+                    <option> Mass</option>
+                    <option >Michigan</option>
+                    <option >Minnesota</option>
+                    <option>Mississippi</option>
+                    <option>Missouri</option>
+                    <option>Montana</option>
+                    <option>Nebraska</option>
+                    <option>Nevada</option>
+                    <option>New Hampshire</option>
+                    <option>New Jersey</option>
+                    <option>New Mexico</option>
+                    <option>New York</option>
+                    <option>North Carolina</option>
+                    <option>North Dakota</option>
+                    <option>Ohio</option>
+                    <option>Oklahoma</option>
+                    <option>Oregon</option>
+                    <option>Pennsylvania</option>
+                    <option>Rhode Island</option>
+                    <option>South Carolina</option>
+                    <option>South Dakota</option>
+                    <option>Tennessee</option>
+                    <option>Texas</option>
+                    <option> Uttah</option>
+                    <option>Vermont</option>
+                    <option>Virginia</option>
+                    <option >Washington</option>
+                    <option >West Virginia</option>
+                    <option>Wisconsin</option>
+                    <option >Wyoming</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-4 control-label">Zip Code</label>
+                <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                  <input name="zip" placeholder="Zip Code" class="form-control"  type="text">
+                </div>
+              </div>
+            </div>
+
+            -->
+
+
+            <!-- radio checks -->
+            <!--
+             <div class="form-group">
+                <label class="col-md-4 control-label">Do you have hosting?</label>
+                <div class="col-md-4">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="hosting" value="yes" /> Yes
                         </label>
-                      </span>
-
-                      <span id="bill-number" data-step="2" data-intro="Enter the bill number">
-                        <input type="number" id="id_number" name="number" placeholder="Bill Number"
-                        min="1" autofocus="autofocus" />
-                      </span>
-
-                      <span id="bill-submit">
-                        <button type="submit" class="btn btn-info">
-                          <i class="fa fa-pencil"></i>
-                          &nbsp;Annotate Bill!
-                        </button>
-                      </span>
                     </div>
-
-                  </form>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="hosting" value="no" /> No
+                        </label>
+                    </div>
                 </div>
+            </div>
+            -->
+
+            <!-- Text area -->
+
+            <div class="form-group">
+              <label class="col-md-4 control-label">Comment</label>
+                <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                      <textarea class="form-control" name="comment" placeholder="Enter Comment"></textarea>
               </div>
-
-            </div> <!-- .banner -->
-
-            <div class="container marketing homeSection">
-
-              <div class="row tripleIconRow">
-                <div class="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-4 marketingItem">
-                  <i class="fa fa-leanpub"></i>
-                  <h2>Find Bills</h2>
-                  <p>Search any bills from the current Texas legislative session.  We can get bills from the Texas Senate or House.  Search by bill number, title or subject.</p>
-                </div>
-                <div class="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-4 marketingItem">
-                  <i class="fa fa-pencil"></i>
-                  <h2>Annotate</h2>
-                  <p>Draw attention to the parts of bills you think warrant comment.  Highlight bill text you think needs comment or elaboration.  Then add your comment.</p>
-                </div>
-                <div class="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-4 marketingItem">
-                  <i class="fa fa-bullhorn"></i>
-                  <h2>Create Dialog</h2>
-                  <p>Whether you're a non-profit, a corporation or a concerned citizen, join the dialog around emerging Texas bills and bring transparency to your cause.</p>
-                </div>
-              </div> <!-- .tripleIconRow -->
-
-
-              <hr class="featurette-divider">
-
-              <div class="row featurette">
-                <div class="col-sm-12">
-                  <i class="fa fa-comment"></i>
-                  <p class="lead">
-                    <span class="featurette-heading">Open Texas legislation. <span class="text-muted">Comment Away.</span></span>
-                    Bill Tracker is an open community platform for tracking and annotating Texas congressional bills.  Legislation is not only transparent here, but it's open for debate.  This is the agora where interested parties can compare notes, debate and discuss the particulars of proposed legislation which will affect them.
-                  </p>
-                </div>
               </div>
+            </div>
 
-              <hr class="featurette-divider">
+            <!-- Success message -->
+            <div class="alert alert-success" role="alert" id="success_message">Success <i class="fa fa-thumbs-up"></i> Thanks for contacting us, we will get back to you shortly.</div>
 
-              <div class="row featurette">
-                <div class="col-sm-12">
-                  <i class="fa fa-connectdevelop"></i>
-                  <p class="lead leadNegativeMargin">
-                    <span class="featurette-heading">Crowdsourced Knowledge. <span class="text-muted">Building Community.</span></span>
-                    Building on the expertise of many, we all grow when we compare notes on the legislation we care about.  We seek to be the favored legislation hub for lawyers, political action committees, corporate representatives and community activists.  When we come together, we become something greater than just the sum of our parts.
-                  </p>
-                </div>
+            <!-- Button -->
+            <div class="form-group">
+              <label class="col-md-4 control-label"></label>
+              <div class="col-md-4">
+                <button type="submit" class="btn btn-info"><i class="fa fa-paper-plane"></i>&nbsp;&nbsp;Send</button>
               </div>
+            </div>
 
-              <hr class="featurette-divider">
+          </fieldset>
+        </form>
 
-              <div class="row featurette">
-                <div class="col-sm-12">
-                  <i class="fa fa-heartbeat"></i>
-                  <p class="lead leadNoTopMargin quote">
-                    <span class="featurette-heading">Dialog & Transparency. <span class="text-muted">Democracy's Heartbeat.</span></span>
-                    <i class="quoteIcon fa fa-quote-left"></i>The whole purpose of democracy is that we may hold counsel with <br><span class="endOfQuote">one another.<i class="quoteIcon fa fa-quote-right"></i> &mdash; <strong>Woodrow Wilson</strong></span>
-                  </p>
-                </div>
-              </div>
+      </div> <!-- container -->
 
-              <hr class="featurette-divider">
+    </div> <!-- form row -->
 
-            </div> <!-- marketing -->
+  </div> <!-- mainContent -->
 
-            <footer>
-              <div class="container">
-                <p class="footerItem1">Texas capitol photo by <a target="_blank" href="https://www.flickr.com/photos/thelukeparker/14170034048/in/photolist-nAa8rS-nbT8E6-nbT3P6">Luke Parker</a>.</p>
-                <p class="footerItem2">See our code on <a target="_blank" href="https://github.com/bill-tracker/bill-tracker">Github</a>.</p>
-                <p class="footerItem3">An <a target="_blank" href="http://atxhackforchange.org/">ATX Hack For Change</a> 2015 project.</p>
-              </div>
-            </footer>
-
-          </div><!-- /st-content-inner -->
-
-        </div><!-- /st-content -->
-
-      </div> <!-- st-pusher -->
-
-    </div> <!-- st-container -->
-
-    <script src="{% static "bills/js/scripts.min.js" %}"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js"></script>
-
-  </body>
-</html>
+{% endblock %}
