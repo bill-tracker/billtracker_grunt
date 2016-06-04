@@ -65,7 +65,6 @@ module.exports = function(grunt) {
       distreq: {
         files: [{
             expand: true,
-            cwd: 'src/',
             src: ['requirements.txt'],
             dest: 'dist/'
         }],
