@@ -22,7 +22,7 @@ Steps to get this working (only tested on mac so far):
 
 4. npm install
 
-5. 5. pip install -r requirements.txt
+5. pip install -r requirements.txt
 
 6. grunt devserver
 
