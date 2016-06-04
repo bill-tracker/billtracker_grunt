@@ -16,13 +16,15 @@
 
 3. `source venv/bin/activate`
 
-2. `cd billtracker_grunt`
+4. `cd billtracker_grunt`
 
-4. `pip install -r requirements.txt`
+5. If pip isn't installed, go to https://pip.pypa.io/en/stable/installing/ and follow the instructions there to install pip
 
-5. `npm install`
+6. `pip install -r requirements.txt`
 
-6. `grunt devserver`
+7. `npm install`
+
+8. `grunt devserver`
 
 Then go to localhost:8000
 
