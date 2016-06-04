@@ -26,7 +26,6 @@
 
 Then go to localhost:8000
 
--- Mark 6/3, 7pm
 
 ### Why are there src, dev & dist folders?
 So for this project we are working in the src folder and then outputting to both the dev and dist folders.  Dev is for viewing while working in src and dist is the production version.  Right now the only difference between dev and dist is that the css & js are each compressed to one minified file on dist.
