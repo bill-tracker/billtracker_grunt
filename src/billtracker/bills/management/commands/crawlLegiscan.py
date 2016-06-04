@@ -1,10 +1,11 @@
 from django.core.management.base import BaseCommand, CommandError
 from bills.models import *
+from bills.services.legiscanService import LegiscanService
 import requests
 
 class Command(BaseCommand):
     help = 'Pulls sponsor and bill data from LegiScan'
 
     def handle(self, *args, **options):
-        print 'Hello! You\'ve set me up correctly!'
-        print Bill.objects.all()
+        print 'Pulling master list...'
+        print LegiscanService.getMasterList('TX')
