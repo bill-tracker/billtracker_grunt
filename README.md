@@ -10,9 +10,7 @@ Steps to get this working (only tested on mac so far):
 
 * Update npm https://docs.npmjs.com/getting-started/installing-node
 
-* Install Grunt if it's not already by typing
-
-`npm install -g grunt-cli`f
+* Install Grunt if it's not already by typing `npm install -g grunt-cli`
 
 1. git clone https://github.com/bill-tracker/billtracker_grunt.git
 
@@ -27,4 +25,4 @@ Steps to get this working (only tested on mac so far):
 6. grunt devserver
 
 
--- Mark 6/3
+-- Mark 6/3 7pm
