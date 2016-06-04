@@ -8,20 +8,25 @@
 
     <div class="row">
 
-      <h1>Bill Listing</h1>
+      <div class="col-md-8">
+        <h1>Bill Listing</h1>
 
-      <ul>
-        {% for bill in bills %}
-        <li><a href="{% url 'bills:single' bill.id %}">{{bill.title}}</a></li>
-        {% endfor %}
-      </ul>
+        <ul>
+          {% for bill in bills %}
+          <li><a href="{% url 'bills:single' bill.id %}">{{bill.title}}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h1>Some comments</h1>
+        <p>Some text in the comment</p>
+        <p>Some other onfo</p>
+      </div>
+
 
     </div>
+  </div>
 
-  </div>
-  <div class="container rightSideBar">
-    <h1>Some comment</h1>
-    <p>Some text in the comment</p>
-  </div>
+
 
 {% endblock %}
