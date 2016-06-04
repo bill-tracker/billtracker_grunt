@@ -85,6 +85,7 @@ module.exports = function(grunt) {
           var commands = ''
           commands += 'cd dev/billtracker;'
           commands += 'python manage.py runserver;'
+          commands += 'echo http://127.0.0.1:8000/;'
           return commands
         }
       },
@@ -93,6 +94,7 @@ module.exports = function(grunt) {
           var commands = ''
           commands += 'cd dist/billtracker;'
           commands += 'python manage.py runserver;'
+          commands += 'echo http://127.0.0.1:8000/;'
           return commands
         }
       },
