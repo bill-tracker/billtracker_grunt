@@ -43,15 +43,33 @@ The way we're dealing with css in src is that there's a css, scss and cssmin fol
 Here are all our grunt commands:
 
 `grunt devclean` - delete the dev folder
+
 `grunt distclean` - delete the dist folder
+
 `grunt devcopy` - copy src to dev
+
 `grunt distcopy` - copy src to dist
-`grunt devmigrate` - runs python manage.py makemigrations & python manage.py migrate on dev
-`grunt distmigrate` - runs python manage.py makemigrations & python manage.py migrate on dist
-`grunt devserver` - runs python manage.py runserver in dev, go to localhost:8000 to see the dev build in your brower
-`grunt distserver` - runs python manage.py runserver in dev, go to localhost:8000 to see the dist build in your brower
+
+`grunt devmigrate` - runs python manage.py makemigrations & python manage.py
+ migrate on dev
+ 
+`grunt distmigrate` - runs python manage.py makemigrations & python manage.py
+ migrate on dist
+
+`grunt devserver` - runs python manage.py runserver in dev, go to
+ localhost:8000 to see the dev build in your brower
+
+`grunt distserver` - runs python manage.py runserver in dev, go to
+ localhost:8000 to see the dist build in your brower
+
 `grunt sassy` - compiles the scss to css
+
 `grunt compressjs` - combines and minifies the js to jsmin/scripts.min.js
+
 `grunt mincss` - combines and minifies the css to cssmin/scripts.min.js
-`grunt watchsass` - watches src for any time you save a file.  When you do, it runs `grunt sassy` and `grunt devcopy`
-`grunt` - just running `grunt` by itself does all the hard work and gets both dev and dist ready to view.  It compiles, minifies and copies both dev and dist
+
+`grunt watchsass` - watches src for any time you save a file.  When you do,
+ it runs `grunt sassy` and `grunt devcopy`
+
+`grunt` - just running `grunt` by itself does all the hard work and gets both
+ dev and dist ready to view.  It compiles, minifies and copies both dev and dist
