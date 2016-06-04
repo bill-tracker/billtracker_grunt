@@ -12,9 +12,11 @@
 
 1. `git clone https://github.com/bill-tracker/billtracker_grunt.git`
 
-2. `cd billtracker_grunt`
+2. `virtualenv venv`
 
-3. `source bin/activate`
+3. `source venv/bin/activate`
+
+2. `cd billtracker_grunt`
 
 4. `npm install`
 
