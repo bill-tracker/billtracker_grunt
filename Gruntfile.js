@@ -179,5 +179,6 @@ module.exports = function(grunt) {
   grunt.registerTask('mincss', ['cssmin']);
   grunt.registerTask('watchsass', ['watch']);
   grunt.registerTask('default', ['mincss','compressjs','devclean','distclean','devcopy','distcopy','devmigrate','distmigrate']);
+  grunt.registerTask('build', ['sassy', 'mincss', 'compressjs', 'distclean', 'distcopy']);
 
 };
