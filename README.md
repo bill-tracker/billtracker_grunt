@@ -12,7 +12,7 @@ Steps to get this working (only tested on mac so far):
 
 * Install Grunt if it's not already by typing
 
-npm install -g grunt-cli
+`npm install -g grunt-cli`f
 
 1. git clone https://github.com/bill-tracker/billtracker_grunt.git
 
@@ -22,7 +22,7 @@ npm install -g grunt-cli
 
 4. npm install
 
-5. pip freeze > requirements.txt
+5. 5. pip install -r requirements.txt
 
 6. grunt devserver
 
