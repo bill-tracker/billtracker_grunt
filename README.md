@@ -4,7 +4,7 @@ Ok, I just pulled this down and got it working so we should be good.
 
 This whole folder is a mac virtual environment (http://docs.python-guide.org/en/latest/dev/virtualenvs/).
 
-Steps to get this working (only tested on mac so far):
+Steps to get this working (only tested on mac & ubuntu so far):
 
 * If you don't have node installed, do that https://nodejs.org/en/download/
 
@@ -23,6 +23,8 @@ Steps to get this working (only tested on mac so far):
 5. `pip install -r requirements.txt`
 
 6. `grunt devserver`
+
+Then go to localhost:8000
 
 
 -- Mark 6/3, 7pm
