@@ -6,6 +6,14 @@ This whole folder is a mac virtual environment (http://docs.python-guide.org/en/
 
 Steps to get this working (only tested on mac so far):
 
+* If you don't have node installed, do that https://nodejs.org/en/download/
+
+* Update npm https://docs.npmjs.com/getting-started/installing-node
+
+* Install Grunt if it's not already by typing
+
+npm install -g grunt-cli
+
 1. git clone https://github.com/bill-tracker/billtracker_grunt.git
 
 2. cd billtracker_grunt
