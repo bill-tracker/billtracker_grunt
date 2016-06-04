@@ -1,8 +1,4 @@
-# billtracker_grunt
-
-Ok, I just pulled this down and got it working so we should be good.
-
-This whole folder is a mac virtual environment (http://docs.python-guide.org/en/latest/dev/virtualenvs/).
+# Billtracker (with grunt)
 
 ## Steps to get this working
 
@@ -52,7 +48,7 @@ Here are all our grunt commands:
 
 `grunt devmigrate` - runs python manage.py makemigrations & python manage.py
  migrate on dev
- 
+
 `grunt distmigrate` - runs python manage.py makemigrations & python manage.py
  migrate on dist
 
