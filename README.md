@@ -25,4 +25,4 @@ Steps to get this working (only tested on mac so far):
 6. `grunt devserver`
 
 
--- Mark 6/3 7pm
+-- Mark 6/3, 7pm
