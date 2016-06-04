@@ -124,48 +124,10 @@
 
                 </header>
 
-                <!--
-                <form class="navbar-form navbar-right" role="search">
-                  <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search" ng-model="query">
-                  </div>
-                  <div class="btn-group">
-                    <a href="#" class="btn btn-primary">Subject</a>
-                    <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="/">Content</a></li>
-                      <li><a href="#">Subject</a></li>
-                      <li><a href="/authors">Author</a></li>
-                    </ul>
-                  </div>
-                </form>
-                -->
 
 
-                <div class="container mainContent">
+                  {% block content %}{% endblock %}          
 
-                  <div class="row">
-
-                    <h1>About Us</h1>
-
-                    <script src="{% static "annotatorjs/lib/tinymce/tinymce.min.js" %}" type="text/javascript"></script>
-
-                    <div class="imageWithCaption">
-                      <img src="{% static "bills/images/team-billtracker-1.jpg" %}" alt="team billtracker" width="100%">
-                      <span class="caption">
-                        Team Bill Tracker at 2015 ATX Hack For Change. Left to right: Rahul, Dee, Matt, Filip, Laura & Ed
-                      </span>
-                    </div>
-
-                    <p>Bill Tracker started as a weekend hackathon project at the 2015 <a href="http://atxhackforchange.org/" target="_blank">ATX Hack For Change</a>. After the hackathon, we continued working on it for a few months to get it live.  Our team had about seven people during the hackathon and afterwards dropped to about four.  We built Bill Tracker to build something of social value for our community and to work on our programming skills.</p>
-
-                    <p>We believe that although Texas legislation is available to the public, that there aren't many people following it and that often legislation is passed which constiuents would disagree with. Our aim was to build a tool which would be fun and easy enough to use that non-lawyers would use it and powerful and popular enough that lawyers and political action committees would also use it.</p>
-
-
-
-                  </div>
-
-                </div>
 
 
                 <footer>
