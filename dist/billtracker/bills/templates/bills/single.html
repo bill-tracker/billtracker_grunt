@@ -1,15 +1,19 @@
+{% extends "bills/base.html" %}
+
 {% load staticfiles %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="{% static 'bills/style.css' %}" />
-  </head>
-  <body>
-    <h3>{{bill.title}}</h3>
+{% block content %}
 
-    <p>{{bill.text}}<p>
 
-  </body>
-</html>
+  <div class="container mainContent">
+
+    <div class="row">
+
+      <h1>{{bill.title}}</h1>
+
+      <p>{{bill.text}}<p>
+
+    </div>
+
+  </div>
+
+{% endblock %}
