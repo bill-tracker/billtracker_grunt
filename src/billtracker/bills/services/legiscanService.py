@@ -6,6 +6,14 @@ class LegiscanService():
     base_params = { 'key': settings.LEGISCAN_API_KEY }
 
     @staticmethod
+    def getSessionList(state):
+        params = { 'op': 'getSessionList', 'state': state }
+        params.update(LegiscanService.base_params)
+        response = requests.get(LegiscanService.base_url, params)
+        response.raise_for_status()
+        return response.json()
+
+    @staticmethod
     def getMasterList(state=None, session=None):
         params = { 'op': 'getMasterList' }
         params.update(LegiscanService.base_params)
@@ -16,16 +24,16 @@ class LegiscanService():
         return response.json()
 
     @staticmethod
-    def getBill(bill_id, state):
-        params = {'op': 'getBill', 'bill_id':bill_id,'state':state}
+    def getBill(bill_id):
+        params = {'op': 'getBill', 'id': bill_id}
         params.update(LegiscanService.base_params)
         response = requests.get(LegiscanService.base_url, params)
         response.raise_for_status()
-        return repsonse.json()
+        return response.json()
 
     @staticmethod
-    def getBillText(doc_id):
-         params = {'op': 'getBillText','doc_id':doc_id}
+    def getBillRevision(doc_id):
+         params = {'op': 'getBillText','id': doc_id}
          params.update(LegiscanService.base_params)
          response = requests.get(LegiscanService.base_url, params)
          response.raise_for_status()
@@ -38,6 +46,7 @@ class LegiscanService():
          response = requests.get(LegiscanService.base_url, params)
          response.raise_for_status()
          return response.json()
+
     @staticmethod
     def getSupplement(supplement_id):
          params = {'op': 'getSupplement', 'supplement_id':supplement_id}
@@ -45,6 +54,7 @@ class LegiscanService():
          response = requests.get(LegiscanService.base_url, params)
          response.raise_for_status()
          return response.json()
+
     @staticmethod
     def getRoll(roll_call_id):
          params = {'op': 'getSupplement', 'supplement_id':supplement_id}
