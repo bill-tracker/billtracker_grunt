@@ -150,10 +150,6 @@ textarea.noResize {
   resize: none;
 }
 
-p.actualbill {
-  padding-right: 20px;
-}
-
 .progress-bar {
   -webkit-transition: width 1.5s ease-in-out;
   transition: width 1.5s ease-in-out;
