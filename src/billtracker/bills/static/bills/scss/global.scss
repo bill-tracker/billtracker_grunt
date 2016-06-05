@@ -55,6 +55,11 @@ a#logoText {
   }
 }
 
+strong{
+  color: red !important;
+}
+
+
 header {
   padding: 0 0 20px;
   overflow: hidden;
@@ -163,3 +168,9 @@ footer {
 .introjs-bullets {
   display: none;
 }
+textarea {
+  resize:none;
+  width:100%;
+} /* none|horizontal|vertical|both */
+textarea.vert { resize:vertical; }
+textarea.noResize { resize:none; }
