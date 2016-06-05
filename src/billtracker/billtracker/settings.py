@@ -124,3 +124,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     '/var/www/static/',
 ]
+
+LEGISCAN_API_KEY = 'eeb0387a2df4e573d4c68b3736a18829'
