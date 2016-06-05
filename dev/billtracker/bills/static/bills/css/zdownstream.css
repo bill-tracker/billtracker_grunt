@@ -96,4 +96,8 @@
   display: none;
 }
 
+.annotator-frame.annotator-outer {
+  margin-top: 100px;
+}
+
 /*# sourceMappingURL=zdownstream.css.map */
