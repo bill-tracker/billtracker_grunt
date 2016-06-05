@@ -40,33 +40,33 @@ class LegiscanService():
          return response.json()
 
     @staticmethod
-    def getAmedment(amendment_id):
-         params = {'op': 'getAmendment', 'amendment_id':amendment_id}
+    def getSponsor(people_id):
+         params = {'op': 'getSponsor', 'id': people_id}
          params.update(LegiscanService.base_params)
          response = requests.get(LegiscanService.base_url, params)
          response.raise_for_status()
          return response.json()
 
-    @staticmethod
-    def getSupplement(supplement_id):
-         params = {'op': 'getSupplement', 'supplement_id':supplement_id}
-         params.update(LegiscanService.base_params)
-         response = requests.get(LegiscanService.base_url, params)
-         response.raise_for_status()
-         return response.json()
+    # @staticmethod
+    # def getAmedment(amendment_id):
+    #      params = {'op': 'getAmendment', 'amendment_id':amendment_id}
+    #      params.update(LegiscanService.base_params)
+    #      response = requests.get(LegiscanService.base_url, params)
+    #      response.raise_for_status()
+    #      return response.json()
 
-    @staticmethod
-    def getRoll(roll_call_id):
-         params = {'op': 'getSupplement', 'supplement_id':supplement_id}
-         params.update(LegiscanService.base_params)
-         response = requests.get(LegiscanService.base_urls, params)
-         response.raise_for_status()
-         return response.json()
+    # @staticmethod
+    # def getSupplement(supplement_id):
+    #      params = {'op': 'getSupplement', 'supplement_id':supplement_id}
+    #      params.update(LegiscanService.base_params)
+    #      response = requests.get(LegiscanService.base_url, params)
+    #      response.raise_for_status()
+    #      return response.json()
 
-    @staticmethod
-    def getSponser(people_id):
-         params = {'op': 'getSponser', 'people_id':people_id}
-         params.update(LegiscanService.base_params)
-         response = response.get(LegiscanService.base_urls, params)
-         response.raise_for_status()
-         return response.json()
+    # @staticmethod
+    # def getRoll(roll_call_id):
+    #      params = {'op': 'getSupplement', 'supplement_id':supplement_id}
+    #      params.update(LegiscanService.base_params)
+    #      response = requests.get(LegiscanService.base_urls, params)
+    #      response.raise_for_status()
+    #      return response.json()
