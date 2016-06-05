@@ -196,4 +196,14 @@ section {
   transition: width 1.5s ease-in-out;
 }
 
+.coverup {
+  height: 41px;
+  width: 300px;
+  background-color: #1a4c6d;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2147483647;
+}
+
 /*# sourceMappingURL=global.css.map */
