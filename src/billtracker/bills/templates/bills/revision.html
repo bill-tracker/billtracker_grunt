@@ -1,0 +1,27 @@
+{% extends "bills/base.html" %}
+
+{% load staticfiles %}
+{% block content %}
+
+<div class="container mainContent" style="margin-top:70px">
+
+    <div class="row">
+
+        <div class="col-xs-8" >
+            <h3 style="text-align:center;">
+                <a>&lt;</a>{{ bill.title }}<a>&gt;</a>
+            </h3>
+
+            <p>This revision was submitted on {{ revision.date }}</p>
+
+            <p>{{ html | safe }}</p>
+            <p>{{ body }}</p>
+        </div>
+
+        <div class="col-xs-4">
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}
