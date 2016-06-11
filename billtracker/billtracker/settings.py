@@ -24,6 +24,7 @@ SECRET_KEY = 'ml&vo2zlqloibwh&lna4y^*yar3a+73k(dv*vpq8ta3!dtldig'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+INTERNAL_IPS = ('127.0.0.1',)
 
 ALLOWED_HOSTS = []
 
@@ -65,7 +66,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-        },
+        }
     },
 ]
 
