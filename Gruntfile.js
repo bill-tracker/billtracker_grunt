@@ -119,7 +119,7 @@ module.exports = function(grunt) {
     },
     watch: {
       files: 'billtracker/bills/static/bills/styles/src/*',
-      tasks: ['build:css']
+      tasks: ['sassy']
     }
   });
 
@@ -137,12 +137,12 @@ module.exports = function(grunt) {
 
   grunt.registerTask('restore', ['exec:restore']);
   grunt.registerTask('clean:all', ['clean:styles', 'clean:scripts']);
-  grunt.registerTask('build:css', ['sass:dev', 'cssmin']);
-  grunt.registerTask('build:js', ['concat', 'uglify']);
+  grunt.registerTask('sassy', ['sass:dev']);
+  grunt.registerTask('compressjs', ['concat', 'uglify']);
   grunt.registerTask('migration', ['django-manage:migrate']);
   grunt.registerTask('migrate', ['django-manage:migration']);
 
-  grunt.registerTask('build', ['restore', 'clean:all', 'copy:deps', 'build:css', 'build:js', 'migrate']);
-  grunt.registerTask('devserver', ['env:dev', 'django-manage:server']);
-  grunt.registerTask('prodserver', ['env:prod', 'django-manage:server']);
+  grunt.registerTask('build', ['restore', 'clean:all', 'copy:deps', 'sassy', 'cssmin', 'compressjs', 'migrate']);
+  grunt.registerTask('devserver', ['env:dev', 'django-manage:serve']);
+  grunt.registerTask('prodserver', ['env:prod', 'django-manage:serve']);
 };

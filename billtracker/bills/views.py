@@ -55,7 +55,7 @@ def revision(request, bill_id, rev_id):
     # bill_text = bill_text.replace(('\xa0' * 13) + '(', '\n(')
     # bill_text = bill_text.replace(('\xa0' * 7) + '(', '\n(')
 
-    print bill_text
+    # print bill_text
 
     return render_response(request, 'bills/revision.html', {
         'bill': bill,
