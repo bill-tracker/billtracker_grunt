@@ -1,18 +1,27 @@
 # Billtracker (with grunt)
 
-## Steps to get this working
+## What you need
 
 (only tested on mac & ubuntu so far)
 
+### Mac (better get that [brew](http://brew.sh/) going)
+```
+brew install node
+brew install python
+```
+
+### Ubuntu
 * If you don't have node installed, do that https://nodejs.org/en/download/
-
 * Update npm https://docs.npmjs.com/getting-started/installing-node
-
-* Install Grunt if it's not already by typing `npm install -g grunt-cli`
-
-* pip install virtualenv 
-
 * If pip isn't installed, go to https://pip.pypa.io/en/stable/installing/ and follow the instructions there to install pip
+
+Install the remaining dependencies:
+```
+npm install -g grunt-cli
+pip install virtualenv
+```
+
+## Installation
 
 1. `git clone https://github.com/bill-tracker/billtracker_grunt.git`
 
@@ -26,51 +35,33 @@
 
 8. `grunt devserver`
 
-9. `grunt`
+9. `grunt watch` (in another terminal, to watch for stylesheet changes)
 
-Then go to localhost:8000
+Go to localhost:8000 to test
 
 
-### Why are there src, dev & dist folders?
-So for this project we are working in the src folder and then outputting to both the dev and dist folders.  Dev is for viewing while working in src and dist is the production version.  Right now the only difference between dev and dist is that the css & js are each compressed to one minified file on dist.
 
 ### We're using sass for our css
-We are using sass for our css.  To compile the scss to css manually use `grunt sassy`.  You can also run `grunt watchsass` and anytime you save any file in src it will compile your scss to css and also copy src to dev.
+We are using sass for our css.  To compile the scss to css manually use `grunt sassy`.  You can also run `grunt watch` and anytime you save any file in src it will compile your scss to css and also copy src to dev.
 
 ### css & js are minified in dist
-The way we're dealing with css in src is that there's a css, scss and cssmin folder.  We're making all changes to the scss files.  Then we compile the scss to css with `sassy` or `watchsass`.  Then the `grunt mincss` command takes everything in the css folder and combines it to one file and minifies that file.  Similarly with javascript, src has a js and jsmin folder.  `grunt compressjs` takes all the js in the js folder and outputs it to one minified file in jsmin.  The grunt devcopy and dist copy are tweaked so they don't copy the scss folder over or the cssmin or jsmin folder.  distcopy only copies the minified css & js files, not all the others.
+`styles/src` contains our sass files. These files are compiled into css and placed in `styles/dev` while running `grunt watch` or after a `grunt sassy` command. The `grunt cssmin` command takes everything in `styles/dev` and minifies that file. Javascript files are stored in `scripts/src`.  `grunt compressjs` takes all script files and outputs them to one minified file in `scripts/dist`.
 
 ### Grunt Commands
 Here are all our grunt commands:
 
-`grunt devclean` - delete the dev folder
 
-`grunt distclean` - delete the dist folder
+`clean:styles`, `clean:scripts`, or `clean:all` - cleanup build artifacts (or `git clean -f`)
 
-`grunt devcopy` - copy src to dev
+`grunt migrate` - runs python manage.py migrate
 
-`grunt distcopy` - copy src to dist
-
-`grunt devmigrate` - runs python manage.py makemigrations & python manage.py
- migrate on dev
-
-`grunt distmigrate` - runs python manage.py makemigrations & python manage.py
- migrate on dist
-
-`grunt devserver` - runs python manage.py runserver in dev, go to
- localhost:8000 to see the dev build in your brower
-
-`grunt distserver` - runs python manage.py runserver in dev, go to
- localhost:8000 to see the dist build in your brower
+`grunt devserver` - runs python manage.py runserver, go to localhost:8000 to see the build in your brower
 
 `grunt sassy` - compiles the scss to css
 
-`grunt compressjs` - combines and minifies the js to jsmin/scripts.min.js
+`grunt cssmin` - combines and minifies css
 
-`grunt mincss` - combines and minifies the css to cssmin/scripts.min.js
+`grunt compressjs` - combines and minifies javascript
 
-`grunt watchsass` - watches src for any time you save a file.  When you do,
- it runs `grunt sassy` and `grunt devcopy`
+`grunt watch` - watches `styles/src` for any time you save a file.  When you do, it runs `grunt sassy`
 
-`grunt` - just running `grunt` by itself does all the hard work and gets both
- dev and dist ready to view.  It compiles, minifies and copies both dev and dist
