@@ -2,16 +2,15 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     env : {
-      dev: {
-        DJANGO_SETTINGS_MODULE : 'billtracker.settings'
-      },
-      prod: {
-        DJANGO_SETTINGS_MODULE : 'billtracker.prodsettings'
-      }
+      dev: { DJANGO_SETTINGS_MODULE : 'billtracker.settings' },
+      prod: { DJANGO_SETTINGS_MODULE : 'billtracker.prodsettings' }
     },
     clean: {
       styles: {
-        src: ['billtracker/bills/static/bills/styles/dist', 'billtracker/bills/static/bills/styles/dev']
+        src: [
+          'billtracker/bills/static/bills/styles/dist', 
+          'billtracker/bills/static/bills/styles/dev'
+        ]
       },
       scripts: {
         src: ['billtracker/bills/static/bills/scripts/dist']
@@ -44,9 +43,7 @@ module.exports = function(grunt) {
     },
     sass: {
       dev: {
-        options: {
-          style: 'expanded'
-        },
+        options: { style: 'expanded' },
         files: [{
           expand: true,
           cwd: 'billtracker/bills/static/bills/styles/src',
@@ -57,12 +54,11 @@ module.exports = function(grunt) {
       }
     },
     cssmin: {
-      options: {
-        shorthandCompacting: true
-      },
+      options: { shorthandCompacting: true },
       target: {
         files: {
-          'billtracker/bills/static/bills/styles/dist/style.min.css': 'billtracker/bills/static/bills/styles/dev/*'
+          'billtracker/bills/static/bills/styles/dist/style.min.css':
+            'billtracker/bills/static/bills/styles/dev/*'
         }
       }
     },
@@ -75,20 +71,13 @@ module.exports = function(grunt) {
     uglify : {
       js: {
         files: {
-          'billtracker/bills/static/bills/scripts/dist/scripts.min.js' : [ 'billtracker/bills/static/bills/scripts/dist/scripts.min.js' ]
+          'billtracker/bills/static/bills/scripts/dist/scripts.min.js' :
+            [ 'billtracker/bills/static/bills/scripts/dist/scripts.min.js' ]
         }
       }
     },
     exec: {
-      restore: {
-        cmd: 'npm install && pip install -r requirements.txt'
-      },
-      migrate: {
-        cmd: 'python billtracker/manage.py migrate'
-      },
-      migration: {
-        cmd: 'python billtracker/manage.py makemigrations'
-      }
+      restore: { cmd: 'npm install && pip install -r requirements.txt' }
     },
     'django-manage': {
       options: {
@@ -101,6 +90,18 @@ module.exports = function(grunt) {
           args: []
         }
       },
+      migrate: {
+        options: {
+          command: 'migrate',
+          args: []
+        }
+      },
+      migration: {
+        options: {
+          command: 'makemigrations',
+          args: []
+        }
+      },
       crawl: {
         options: {
           command: 'crawlLegiscan',
@@ -108,29 +109,12 @@ module.exports = function(grunt) {
         }
       }
       // test: {
-      // },
-      // dump: {
-      //     options: {
-      //       command: 'dumpdata',
-      //       args: [
-      //       '--format=json',
-      //       '--indent=4',
-      //       'myApp',                       // return only on application's models
-      //       '> ./path/to/output_file.json' // save in file
-      //     ]
-      //   }
       // }
     },
     'django-admin': {
       options: {
         app: 'billtracker',
         manage_path: './billtracker/'
-      },
-      crawl: {
-        options: {
-          command: 'crawlLegiscan',
-          verbose: true
-        }
       }
     },
     watch: {
@@ -155,10 +139,10 @@ module.exports = function(grunt) {
   grunt.registerTask('clean:all', ['clean:styles', 'clean:scripts']);
   grunt.registerTask('build:css', ['sass:dev', 'cssmin']);
   grunt.registerTask('build:js', ['concat', 'uglify']);
-  grunt.registerTask('migration', ['exec:migration']);
-  grunt.registerTask('migrate', ['exec:migrate']);
+  grunt.registerTask('migration', ['django-manage:migrate']);
+  grunt.registerTask('migrate', ['django-manage:migration']);
 
   grunt.registerTask('build', ['restore', 'clean:all', 'copy:deps', 'build:css', 'build:js', 'migrate']);
-  grunt.registerTask('devserver', ['env:dev', 'exec:server', 'watch']);
-  grunt.registerTask('prodserver', ['env:prod', 'exec:server']);
+  grunt.registerTask('devserver', ['env:dev', 'django-manage:server']);
+  grunt.registerTask('prodserver', ['env:prod', 'django-manage:server']);
 };

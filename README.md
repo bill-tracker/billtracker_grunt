@@ -10,21 +10,23 @@
 
 * Install Grunt if it's not already by typing `npm install -g grunt-cli`
 
+* pip install virtualenv 
+
+* If pip isn't installed, go to https://pip.pypa.io/en/stable/installing/ and follow the instructions there to install pip
+
 1. `git clone https://github.com/bill-tracker/billtracker_grunt.git`
 
-2. `virtualenv venv`
+2. `cd billtracker_grunt`
 
-3. `source venv/bin/activate`
+3. `virtualenv venv`
 
-4. `cd billtracker_grunt`
+4. `source venv/bin/activate`
 
-5. If pip isn't installed, go to https://pip.pypa.io/en/stable/installing/ and follow the instructions there to install pip
-
-6. `pip install -r requirements.txt`
-
-7. `npm install`
+6. `grunt build`
 
 8. `grunt devserver`
+
+9. `grunt`
 
 Then go to localhost:8000
 
