@@ -57,6 +57,7 @@ class BillRevision(models.Model):
     doc_type = models.CharField(max_length=50, default="")
     doc_mime = models.CharField(max_length=50, default="")
     doc_encoded = models.TextField(default="")
+    raw_text = models.TextField(default="")
 
     created = models.DateField(auto_now_add = True, editable=False)
 

@@ -3,10 +3,8 @@ from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from django.template import RequestContext
 from .models import *
+from .helpers import decode, strip_html
 import requests
-import base64
-import re
-from bs4 import BeautifulSoup
 
 def render_response(request, template, params = None):
     return render(request, template, params, context_instance=RequestContext(request))
@@ -43,25 +41,12 @@ def revision(request, bill_id, rev_id):
     revision = get_object_or_404(BillRevision, pk=rev_id)
     bill = get_object_or_404(Bill, pk=bill_id)
 
-    decoded_text = base64.b64decode(revision.doc_encoded)
-    bill_soup = BeautifulSoup(decoded_text, 'html.parser')
-    bill_soup.find('style').extract()
-    bill_text = bill_soup.get_text().split('\n')
-    bill_text = list(filter(lambda x: re.search('\w+', x), bill_text))
-    bill_text = ' '.join(bill_text)
-    # bill_text = bill_text.split(('\xa0' * 7) + 'S')
-    # bill_text = '\n\nS'.join(bill_text)
-    # bill_text = re.sub(r'(\..+[A-Z]+)(\. .?\()', subsection_repl, bill_text)
-    # bill_text = bill_text.replace(('\xa0' * 13) + '(', '\n(')
-    # bill_text = bill_text.replace(('\xa0' * 7) + '(', '\n(')
-
-    # print bill_text
+    bill_text = strip_html(decode(revision.doc_encoded))
 
     return render_response(request, 'bills/revision.html', {
         'bill': bill,
         'revision': revision,
-        'body': bill_text,
-        'html': decoded_text
+        'bill_text': bill_text
     })
 
 def search_by_title(request):

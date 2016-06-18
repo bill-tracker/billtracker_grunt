@@ -14,8 +14,14 @@
 
             <p>This revision was submitted on {{ revision.date }}</p>
 
-            <p>{{ html | safe }}</p>
-            <p>{{ body }}</p>
+            <style type="text/css">
+                textarea#revisionBody.resizeable {
+                    height: 500px;
+                    width: 500px;
+                    resize: both;
+                }
+            </style>
+            <textarea id="revisionBody" class="resizeable">{{ bill_text }}</textarea>
         </div>
 
         <div class="col-xs-4">
