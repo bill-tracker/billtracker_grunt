@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^bills/(?P<bill_id>[0-9]+)/revision/(?P<rev_id>[0-9]+)/$', views.revision, name='revision'),
     url(r'^search_by_title/', views.search_by_title, name='search_by_title'),
     url(r'^scraper/', views.scraper, name='scraper'),
+    url(r'^app/', views.app, name='app'),
 ]

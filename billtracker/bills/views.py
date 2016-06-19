@@ -9,6 +9,9 @@ import requests
 def render_response(request, template, params = None):
     return render(request, template, params, context_instance=RequestContext(request))
 
+def app(request):
+    return render_response(request, 'bills/app.html')
+
 def index(request):
     return render_response(request, 'bills/index.html')
 

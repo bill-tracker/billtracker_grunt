@@ -64,8 +64,17 @@ module.exports = function(grunt) {
     },
     concat: {
       js : {
-        src : ['billtracker/bills/static/bills/scripts/src/*'],
+        src : ['billtracker/bills/static/bills/scripts/src/*.js'],
         dest : 'billtracker/bills/static/bills/scripts/dist/scripts.min.js'
+      }
+    },
+    browserify: {
+      dev: {
+        options: {
+           transform: [['babelify', {presets: ['es2015', 'react']}]]
+        },        
+        src: ['billtracker/bills/static/bills/scripts/src/app.jsx'],
+        dest: 'billtracker/bills/static/bills/scripts/dev/app.js',
       }
     },
     uglify : {
@@ -118,8 +127,22 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: 'billtracker/bills/static/bills/styles/src/*',
-      tasks: ['sassy']
+      sass: {
+        files: 'billtracker/bills/static/bills/styles/src/*',
+        tasks: ['sassy']
+      },
+      browserify: {
+        files: 'billtracker/bills/static/bills/scripts/src/*.jsx',
+        tasks: ['browserify']
+      }
+    },
+    concurrent: {
+      options: {
+        logConcurrentOutput: true
+      },
+      'watch-server': {
+        tasks: ["watch:sass", "watch:browserify", "django-manage:serve"]
+      }
     }
   });
 
@@ -134,15 +157,19 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-django');
+  grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-concurrent');
 
   grunt.registerTask('restore', ['exec:restore']);
   grunt.registerTask('clean:all', ['clean:styles', 'clean:scripts']);
   grunt.registerTask('sassy', ['sass:dev']);
   grunt.registerTask('compressjs', ['concat', 'uglify']);
+  grunt.registerTask('watchall', ['concurrent:watch']);
+
   grunt.registerTask('migration', ['django-manage:migrate']);
   grunt.registerTask('migrate', ['django-manage:migration']);
 
-  grunt.registerTask('build', ['restore', 'clean:all', 'copy:deps', 'sassy', 'cssmin', 'compressjs', 'migrate']);
-  grunt.registerTask('devserver', ['env:dev', 'django-manage:serve']);
-  grunt.registerTask('prodserver', ['env:prod', 'django-manage:serve']);
+  grunt.registerTask('build', ['restore', 'clean:all', 'copy:deps', 'sassy', 'cssmin', 'compressjs', 'browserify', 'migrate']);
+  grunt.registerTask('devserver', ['env:dev', 'concurrent:watch-server']);
+  // grunt.registerTask('prodserver', ['env:prod', 'django-manage:serve']);
 };
