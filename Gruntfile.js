@@ -2,164 +2,126 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     env : {
-      dev: {
-          NODE_ENV : 'DEVELOPMENT'
-      },
-      dist : {
-          NODE_ENV : 'PRODUCTION'
-      }
+      dev: { DJANGO_SETTINGS_MODULE : 'billtracker.settings' },
+      prod: { DJANGO_SETTINGS_MODULE : 'billtracker.prodsettings' }
     },
-    preprocess : {
-      dev : {
-        src: '**/*.html',
-        ext: '.html',
-        cwd: 'src/billtracker/bills/templates/bills/',
-        dest: 'dev/billtracker/bills/templates/bills/',
-        expand: true
-        // src : 'src/billtracker/bills/templates/bills/*.html',
-        // cwd : 'dev/billtracker/bills/templates/bills/*'
+    clean: {
+      styles: {
+        src: [
+          'billtracker/bills/static/bills/styles/dist', 
+          'billtracker/bills/static/bills/styles/dev'
+        ]
       },
-      dist : {
-        src: '**/*.html',
-        ext: '.html',
-        cwd: 'src/billtracker/bills/templates/bills/',
-        dest: 'dist/billtracker/bills/templates/bills/',
-        expand: true
-        // src : 'src/billtracker/bills/templates/bills/*',
-        // dest : 'dist/billtracker/bills/templates/bills/*'
+      scripts: {
+        src: ['billtracker/bills/static/bills/scripts/dist']
       }
     },
     copy: {
-      dev: {
+      deps: {
         files: [{
-            expand: true,
-            cwd: 'src/',
-            src: ['*','**', '!**/scss/**', '!**/cssmin/**', '!**/jsmin/**'],
-            dest: 'dev/'
-        }],
-      },
-      distmain: {
-        files: [{
-            expand: true,
-            cwd: 'src/',
-            src: ['*','**', '!**/css/*', '!**/scss/**', '!**/cssmin/**', '!**/js/*', '!**/jsmin/**'],
-            dest: 'dist/'
-        }],
-      },
-      distcss: {
-        files: [{
-            expand: true,
-            cwd: 'src/billtracker/bills/static/bills/cssmin/',
-            src: ['style.min.css'],
-            dest: 'dist/billtracker/bills/static/bills/css/'
-        }],
-      },
-      distjs: {
-        files: [{
-            expand: true,
-            cwd: 'src/billtracker/bills/static/bills/jsmin/',
-            src: ['scripts.min.js'],
-            dest: 'dist/billtracker/bills/static/bills/js/'
-        }],
-      },
-      distreq: {
-        files: [{
-            expand: true,
-            cwd: 'src/',
-            src: ['requirements.txt'],
-            dest: 'dist/'
+          expand: true,
+          cwd: 'node_modules/bootstrap/dist/css/',
+          src: ['bootstrap.css', 'bootstrap.css.map'],
+          dest: 'billtracker/bills/static/bills/styles/dev'
+        },{
+          expand: true,
+          cwd: 'node_modules/intro.js/',
+          src: ['introjs.css'],
+          dest: 'billtracker/bills/static/bills/styles/dev'
+        },{
+          expand: true,
+          cwd: 'node_modules/bootstrap/dist/js/',
+          src: ['bootstrap.js'],
+          dest: 'billtracker/bills/static/bills/scripts/src'
+        },{
+          expand: true,
+          cwd: 'node_modules/intro.js/',
+          src: ['intro.js'],
+          dest: 'billtracker/bills/static/bills/scripts/src'
         }],
       }
-    },
-    clean: {
-      dev: {
-        src: ['dev/billtracker']
-      },
-      dist: {
-        src: ['dist/billtracker/']
-      }
-    },
-    exec: {
-      devmigrate: {
-        cmd: function() {
-          var commands = ''
-          commands += 'cd dev/billtracker;'
-          commands += 'python manage.py makemigrations;'
-          commands += 'python manage.py migrate;'
-          return commands
-        }
-      },
-      distmigrate: {
-        cmd: function() {
-          var commands = ''
-          commands += 'cd dist/billtracker;'
-          commands += 'python manage.py makemigrations;'
-          commands += 'python manage.py migrate;'
-          return commands
-        }
-      },
-      devserver: {
-        cmd: function() {
-          var commands = ''
-          commands += 'cd dev/billtracker;'
-          commands += 'python manage.py runserver;'
-          commands += 'echo http://127.0.0.1:8000/;'
-          return commands
-        }
-      },
-      distserver: {
-        cmd: function() {
-          var commands = ''
-          commands += 'cd dist/billtracker;'
-          commands += 'python manage.py runserver;'
-          commands += 'echo http://127.0.0.1:8000/;'
-          return commands
-        }
-      },
     },
     sass: {
       dev: {
-        options: {
-          style: 'expanded'
-        },
+        options: { style: 'expanded' },
         files: [{
           expand: true,
-          cwd: 'src/billtracker/bills/static/bills/scss',
+          cwd: 'billtracker/bills/static/bills/styles/src',
           src: ['*.scss'],
-          dest: 'src/billtracker/bills/static/bills/css',
+          dest: 'billtracker/bills/static/bills/styles/dev',
           ext: '.css'
         }]
       }
     },
     cssmin: {
-      options: {
-        shorthandCompacting: true
-      },
+      options: { shorthandCompacting: true },
       target: {
         files: {
-          'src/billtracker/bills/static/bills/cssmin/style.min.css': 'src/billtracker/bills/static/bills/css/*'
+          'billtracker/bills/static/bills/styles/dist/style.min.css':
+            'billtracker/bills/static/bills/styles/dev/*'
         }
       }
     },
     concat: {
-        js : {
-            src : [
-                'src/billtracker/bills/static/bills/js/*'
-            ],
-            dest : 'src/billtracker/bills/static/bills/jsmin/scripts.min.js'
-        }
+      js : {
+        src : ['billtracker/bills/static/bills/scripts/src/*'],
+        dest : 'billtracker/bills/static/bills/scripts/dist/scripts.min.js'
+      }
     },
     uglify : {
-        js: {
-            files: {
-                'src/billtracker/bills/static/bills/jsmin/scripts.min.js' : [ 'src/billtracker/bills/static/bills/jsmin/scripts.min.js' ]
-            }
+      js: {
+        files: {
+          'billtracker/bills/static/bills/scripts/dist/scripts.min.js' :
+            [ 'billtracker/bills/static/bills/scripts/dist/scripts.min.js' ]
         }
+      }
+    },
+    exec: {
+      restore: { cmd: 'npm install && pip install -r requirements.txt' }
+    },
+    'django-manage': {
+      options: {
+        app: 'billtracker',
+        manage_path: './billtracker/'
+      },
+      serve: {
+        options: {
+          command: 'runserver',
+          args: [],
+          verbose: true,
+          unBuffered: true
+        }
+      },
+      migrate: {
+        options: {
+          command: 'migrate',
+          args: []
+        }
+      },
+      migration: {
+        options: {
+          command: 'makemigrations',
+          args: []
+        }
+      },
+      crawl: {
+        options: {
+          command: 'crawlLegiscan',
+          verbose: true
+        }
+      }
+      // test: {
+      // }
+    },
+    'django-admin': {
+      options: {
+        app: 'billtracker',
+        manage_path: './billtracker/'
+      }
     },
     watch: {
-      // files: 'src/billtracker/bills/static/bills/scss/**',
-      files: 'src/billtracker/**',
-      tasks: ['sass:dev','devcopy']
+      files: 'billtracker/bills/static/bills/styles/src/*',
+      tasks: ['sassy']
     }
   });
 
@@ -173,20 +135,16 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-django');
 
-  grunt.registerTask('devclean', ['clean:dev']);
-  grunt.registerTask('distclean', ['clean:dist']);
-  grunt.registerTask('devcopy', ['env:dev','copy:dev','preprocess:dev']);
-  grunt.registerTask('distcopy', ['env:dist','copy:distmain','copy:distcss','copy:distjs', 'copy:distreq', 'preprocess:dist']);
-  grunt.registerTask('devmigrate', ['exec:devmigrate']);
-  grunt.registerTask('distmigrate', ['exec:distmigrate']);
-  grunt.registerTask('devserver', ['exec:devserver']);
-  grunt.registerTask('distserver', ['exec:distserver']);
+  grunt.registerTask('restore', ['exec:restore']);
+  grunt.registerTask('clean:all', ['clean:styles', 'clean:scripts']);
   grunt.registerTask('sassy', ['sass:dev']);
-  grunt.registerTask('compressjs', ['concat:js','uglify:js']);
-  grunt.registerTask('mincss', ['cssmin']);
-  grunt.registerTask('watchsass', ['watch']);
-  grunt.registerTask('default', ['mincss','compressjs','devclean','distclean','devcopy','distcopy','devmigrate','distmigrate']);
-  grunt.registerTask('build', ['sassy', 'mincss', 'compressjs', 'distclean', 'distcopy']);
+  grunt.registerTask('compressjs', ['concat', 'uglify']);
+  grunt.registerTask('migration', ['django-manage:migrate']);
+  grunt.registerTask('migrate', ['django-manage:migration']);
 
+  grunt.registerTask('build', ['restore', 'clean:all', 'copy:deps', 'sassy', 'cssmin', 'compressjs', 'migrate']);
+  grunt.registerTask('devserver', ['env:dev', 'django-manage:serve']);
+  grunt.registerTask('prodserver', ['env:prod', 'django-manage:serve']);
 };

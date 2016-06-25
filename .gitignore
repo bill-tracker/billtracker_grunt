@@ -1,9 +1,9 @@
-.DS_Store
+*.DS_Store
 node_modules
 *.pyc
-.DS_Store
-
-env
 *db.sqlite3
-dev/
-dist/
+
+env/
+*dist/
+*dev/
+.sass-cache/
