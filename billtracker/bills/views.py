@@ -30,7 +30,7 @@ def contact_us(request):
 def single(request, bill_id):
     bill = get_object_or_404(Bill, pk=bill_id)
     revisions = bill.billrevision_set.all()
-    return render_response(request, 'bills/single.html', { 
+    return render_response(request, 'bills/single.html', {
         'bill': bill,
         'revisions': revisions
     })
@@ -39,7 +39,7 @@ def subsection_repl(matchobj):
     return matchobj.group(1) + '.\n('
 
 def revision(request, bill_id, rev_id):
-    print 'Fetching bill {0} revision {1}...'.format(bill_id, rev_id)
+    print('Fetching bill {0} revision {1}...'.format(bill_id, rev_id))
     revision = get_object_or_404(BillRevision, pk=rev_id)
     bill = get_object_or_404(Bill, pk=bill_id)
 
