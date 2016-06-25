@@ -87,7 +87,9 @@ module.exports = function(grunt) {
       serve: {
         options: {
           command: 'runserver',
-          args: []
+          args: [],
+          verbose: true,
+          unBuffered: true
         }
       },
       migrate: {
